@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Flow+Circular&family=Work+Sans:wght@200&display=swap");
+body {
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #282828; }
+
+h1 {
+  font-family: 'Anton', sans-serif;
+  color: #444444;
+  margin: 0 auto 1rem auto;
+  padding-bottom: 0.5rem;
+  width: fit-content;
+  border-bottom: 0.5rem solid #367ca5; }
+
+.lorem {
+  font-family: 'Flow Circular'; }
+
+section {
+  margin: 2rem 0;
+  padding: 1rem 0; }
+
+section#about h1 {
+  border-bottom: 0.5rem solid #9b4545; }
+
+section#work {
+  background-color: #d6d6d6; }
+
+section#work h2 {
+  margin: 1rem 0; }
+
+section#hiring h1 {
+  border-bottom: 0.5rem solid #959b45; }
+
+section#footer {
+  padding: 2rem 0;
+  background-color: black; }
