@@ -7,13 +7,38 @@ body {
 h1 {
   font-family: 'Anton', sans-serif;
   color: #444444;
-  margin: 0 auto 1rem auto;
   padding-bottom: 0.5rem;
   width: fit-content;
   border-bottom: 0.5rem solid #367ca5; }
 
-.lorem {
-  font-family: 'Flow Circular'; }
+#work h1,
+#hiring h1,
+#footer h1 {
+  margin: 0 auto 1rem auto; }
+
+#navbar {
+  justify-content: end; }
+
+#about h1 {
+  width: fit-content; }
+
+.lorem,
+h1,
+h2,
+* {
+  color: #575757; }
+
+#about h1 {
+  text-align: left; }
+
+.profile_pic {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 50%;
+  max-height: 200px;
+  transform: scaleX(-1);
+  filter: grayscale(1); }
 
 section {
   margin: 2rem 0;
@@ -33,4 +58,5 @@ section#hiring h1 {
 
 section#footer {
   padding: 2rem 0;
+  margin: 0;
   background-color: black; }
