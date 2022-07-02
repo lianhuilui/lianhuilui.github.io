@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Flow+Circular&family=Work+Sans:wght@200&display=swap");
+body {
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgb(40, 40, 40);
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  color: rgb(68, 68, 68);
+  padding-bottom: 0.5rem;
+  width: fit-content;
+  border-bottom: 0.5rem solid rgb(54, 124, 165);
+}
+
+#work h1,
+#hiring h1,
+#footer h1 {
+  margin: 0 auto 1rem auto;
+}
+
+#navbar {
+  justify-content: end;
+}
+
+li.spacer {
+  flex: 1;
+}
+
+#about h1 {
+  width: fit-content;
+}
+
+.lorem,
+h1,
+h2,
+* {
+  color: rgb(87, 87, 87);
+}
+
+#about h1 {
+  text-align: left;
+}
+
+.profile_pic {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 50%;
+  max-height: 200px;
+  transform: scaleX(-1);
+  filter: grayscale(1);
+}
+
+section {
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+section#about h1 {
+  border-bottom: 0.5rem solid rgb(155, 69, 69);
+}
+
+section#work {
+  background-color: rgb(214, 214, 214);
+}
+
+section#work h2 {
+  margin: 1rem 0;
+}
+
+section#hiring h1 {
+  border-bottom: 0.5rem solid rgb(149, 155, 69);
+}
+
+footer#footer {
+  padding: 2rem 0;
+  margin: 0;
+  background-color: black;
+}
+
+div.img {
+  max-width: 100%;
+}
+
+div.img p {
+  display: block;
+  border: 1px solid gray;
+  width: 100%;
+  height: 150px;
+}
+
+div.tags {
+  margin-bottom: 16px;
+}
