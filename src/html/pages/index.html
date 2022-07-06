@@ -2,7 +2,18 @@
 
 {% set title = "Home" %}
 
+{% set projects =
+[
+{title: "Shopify E-Commerce Site", client:"UStar Myanmar", link: "/projects/ustarmm/", live: "https://ustarmm.com", tags: ["Shopify"], desc: "An online store with hundreds of products and dozens of categories."},
+{title: "Lucky Draw Web App", client: "Berina Myanmar", link: "/projects/berinaluckydraw", tags: ["GCP", "NodeJS"], desc: ""},
+{title: "Airport VIP Booking System", client: "APAS Thailand", tags: ["Django", "AngularJS"], desc: ""},
+{title: "Facebook Instant Game", client: "Samsung Myanmar", tags: ["GCP", "Facebook Instant Game"], desc: ""},
+{title: "Board Game Cafe POS", client: "House Rules Cafe", tags: ["Django"], desc: ""}
+]
+%}
+
 {% block content %}
+
 
 <section id="about">
     <div class="container">
@@ -32,85 +43,17 @@
 <section id="work">
     <div class="container">
 
-        <h1>my work</h1>
+        <h1>my freelance work</h1>
 
         <div class="row">
 
+            {% for project in projects %}
             <div class="col-md-4">
-
-                <h2>project 1</h2>
-
-                <a href="/projects/project1.html">
-                    <div class="img">
-                        <p></p>
-                    </div>
-                </a>
-
-                <div class="tags">
-                    <span class="badge text-black bg-light">javascript</span>
-                    <span class="badge text-black bg-light">html</span>
-                </div>
-
-                <p class="lorem">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus recusandae officiis velit eum
-                    tempore
-                    assumenda blanditiis ullam quaerat esse doloremque facilis ipsa dolorum accusamus deleniti, animi,
-                    nostrum dolor, nulla consequatur.
-                </p>
-
+                {% include 'snippets/project.html' %}
             </div>
+            {% endfor %}
 
-            <div class="col-md-4">
-                <h2>project 2</h2>
-
-                <a href="/projects/project2.html">
-                    <div class="img">
-                        <p></p>
-                    </div>
-                </a>
-
-                <div class="tags">
-                    <span class="badge text-black bg-light">django</span>
-                    <span class="badge text-black bg-light">python</span>
-                    <span class="badge text-black bg-light">sql</span>
-                </div>
-
-                <p class="lorem">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea dolores, quisquam sint fugit dicta
-                    voluptatum odit provident voluptatem deleniti obcaecati modi neque itaque temporibus laboriosam ab
-                    molestias! Et, unde autem!
-                </p>
-
-            </div>
-
-            <div class="col-md-4">
-                <h2>project 3</h2>
-                <p class="lorem">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. In officiis veniam assumenda excepturi
-                    libero
-                    unde blanditiis explicabo eaque earum. Numquam voluptates minima eum recusandae mollitia obcaecati
-                    ad
-                    velit facilis distinctio.
-                </p>
-
-                <a href="/projects/project3.html">
-                    <div class="img">
-                        <p></p>
-                    </div>
-                </a>
-
-                <div class="tags">
-                    <span class="badge text-black bg-light">nodejs</span>
-                    <span class="badge text-black bg-light">react</span>
-                    <span class="badge text-black bg-light">gcp</span>
-                </div>
-            </div>
         </div>
-
-        <button class="mx-auto btn btn-success d-block">
-            Browse Portfolio
-            <i class="text-white bi-arrow-right"></i>
-        </button>
 
     </div>
 
