@@ -13,6 +13,10 @@ h1 {
   border-bottom: 0.5rem solid rgb(54, 124, 165);
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+
 #work h1,
 #hiring h1,
 #footer h1 {

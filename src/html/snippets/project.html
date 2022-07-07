@@ -31,7 +31,7 @@
 <p style="text-align: right;">
 
     {% if project.live %}
-    <a style="color: green" class="btn btn-sm btn-light" href="{{project.live}}" target="_blank">View Live Site <i
+    <a style="color: green" class="btn btn-sm btn-light" href="{{project.live}}" target="_blank">{{ "View Live Site" if project.live_text == null else project.live_text }} <i
             style="color: green;" class="bi-search-heart"></i></a>
     {% endif %}
 
