@@ -107,3 +107,7 @@ body {
   position: sticky;
   top: 5rem;
 }
+
+#side-nav .nav-link.active {
+  background-color: rgb(54, 124, 165);
+}
