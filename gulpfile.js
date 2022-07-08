@@ -28,16 +28,11 @@ function css() {
         .pipe(dest('./dist/css'));
 }
 
-function fonts() {
-    return src('./node_modules/bootstrap-icons/font/fonts/*')
-        .pipe(dest('./dist/css/fonts'))
-}
-
 function watchFiles() {
     watch('src/html/**/*', html)
     watch('src/scss/**/*', css)
     watch('src/media/**/*', media)
 }
 
-exports.build = series(clean, html, css, media, fonts)
-exports.default = series(clean, html, css, media, fonts, watchFiles)
+exports.build = series(clean, html, css, media)
+exports.default = series(clean, html, css, media, watchFiles)
