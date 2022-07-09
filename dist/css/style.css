@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Flow+Circular&family=Work+Sans:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Flow+Circular&family=Finlandica:ital@1&family=Work+Sans:wght@200&display=swap");
 body {
   padding: 0;
   font-family: "Source Sans Pro", sans-serif;
@@ -7,11 +7,10 @@ body {
 }
 
 h1 {
-  font-family: "Anton", sans-serif;
+  font-family: "Finlandica", sans-serif;
   color: rgb(68, 68, 68);
   padding-bottom: 0.5rem;
   width: fit-content;
-  border-bottom: 0.5rem solid rgb(54, 124, 165);
 }
 
 h2 {
@@ -20,7 +19,8 @@ h2 {
 
 #work h1,
 #hiring h1,
-#footer h1 {
+#footer h1,
+#github h1 {
   margin: 0 auto 1rem auto;
 }
 
@@ -45,6 +45,10 @@ h2,
 
 #about h1 {
   text-align: left;
+}
+
+#work h1 {
+  border-bottom: 0.5rem solid rgb(54, 124, 165);
 }
 
 .profile_pic {
@@ -72,6 +76,11 @@ section#work {
 
 section#work h2 {
   margin: 1rem 0;
+}
+
+section#hiring h2 {
+  text-align: center;
+  font-size: 1.8em;
 }
 
 section#hiring h1 {
