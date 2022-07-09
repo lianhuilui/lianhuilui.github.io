@@ -12,6 +12,25 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Home</title>
+
+    <script>
+        document.addEventListener('scroll', () => {
+            document.documentElement.dataset.scroll = window.scrollY;
+        });
+
+        document.documentElement.dataset.scroll = window.scrollY;
+    </script>
+
+    <style>
+        header .navbar {
+            box-shadow: 0 0 1em rgba(0, 0, 0, 0.0);
+            transition: box-shadow 0.1s ease-in-out;
+        }
+
+        html:not([data-scroll='0']) header .navbar {
+            box-shadow: 0 0 1em rgba(0, 0, 0, 0.8);
+        }
+    </style>
 </head>
 
 <body class="bg-light" >

@@ -70,7 +70,7 @@
     }
 
     section {
-        margin: 2rem 0;
+        // margin: 2rem 0;
         padding: 1rem 0;
     }
 
@@ -116,9 +116,9 @@
         margin-bottom: 16px;
     }
 
-    body {
-        padding-top: 2.5rem;
-    }
+    // body {
+    //     padding-top: 2.5rem;
+    // }
 
     #side-nav {
         position: sticky;
@@ -127,4 +127,13 @@
 
     #side-nav .nav-link.active {
         background-color: rgb(54, 124, 165);
+    }
+
+    // body[data-bs-spy="scroll"] section {
+    section {
+        padding-top: 6rem;
+    }
+
+    section#hiring {
+        padding-bottom: 3rem;
     }

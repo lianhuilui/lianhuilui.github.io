@@ -62,7 +62,6 @@ h2,
 }
 
 section {
-  margin: 2rem 0;
   padding: 1rem 0;
 }
 
@@ -108,10 +107,6 @@ div.tags {
   margin-bottom: 16px;
 }
 
-body {
-  padding-top: 2.5rem;
-}
-
 #side-nav {
   position: sticky;
   top: 5rem;
@@ -119,4 +114,12 @@ body {
 
 #side-nav .nav-link.active {
   background-color: rgb(54, 124, 165);
+}
+
+section {
+  padding-top: 6rem;
+}
+
+section#hiring {
+  padding-bottom: 3rem;
 }
