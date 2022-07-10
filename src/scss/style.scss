@@ -20,10 +20,9 @@
     }
 
     #work,
-    #hiring,
+    #hire,
     #footer,
-    #github
-     {
+    #github {
         h1 {
             margin: 0 auto 1rem auto;
         }
@@ -86,12 +85,12 @@
         margin: 1rem 0;
     }
 
-    section#hiring h2 {
+    section#hire h2 {
         text-align: center;
         font-size: 1.8em;
     }
 
-    section#hiring h1 {
+    section#hire h1 {
         border-bottom: 0.5rem solid rgb(149, 155, 69);
     }
 
@@ -105,11 +104,31 @@
         max-width: 100%;
     }
 
+    div.img-container {
+        width: 100%;
+    }
+
+    img.img {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: top;
+    }
+
     div.img p {
-        display: block;
+        display: flex;
         border: 1px solid gray;
         width: 100%;
-        height: 250px;
+        height: 200px;
+        text-align: center;
+        color: black;
+
+        i {
+            display: block;
+            font-size: 5rem;
+            margin: auto;
+            color: #ccc;
+        }
     }
 
     div.tags {
@@ -134,6 +153,6 @@
         padding-top: 6rem;
     }
 
-    section#hiring {
+    section#hire {
         padding-bottom: 3rem;
     }

@@ -1,17 +1,21 @@
 <h2>{{ project.title }}</h2>
 
 
-{% if project.link %}
-<a href="{{ project.link }}">
-    <div class="img">
-        <p></p>
+{% if project.link %}<a href="{{ project.link }}">{% endif %}
+
+
+    {% if project.img %}
+    <div class="img-container">
+        <img class="img" src="{{ project.img }}" alt="">
     </div>
-</a>
-{% else %}
-<div class="img">
-    <p></p>
-</div>
-{% endif %}
+    {% else %}
+    <div class="img">
+        <p><i class="bi-boxes"></i></p>
+    </div>
+    {% endif %}
+
+    {% if project.link %}
+</a>{% endif %}
 
 <div class="tags">
     {% for tag in project.tags %}
@@ -31,8 +35,8 @@
 <p style="text-align: right;">
 
     {% if project.live %}
-    <a style="color: green" class="btn btn-sm btn-light" href="{{project.live}}" target="_blank">{{ "View Live Site" if project.live_text == null else project.live_text }} <i
-            style="color: green;" class="bi-search-heart"></i></a>
+    <a style="color: green" class="btn btn-sm btn-light" href="{{project.live}}" target="_blank">{{ "View Live Site" if
+        project.live_text == null else project.live_text }} <i style="color: green;" class="bi-search-heart"></i></a>
     {% endif %}
 
     {% if project.link %}
