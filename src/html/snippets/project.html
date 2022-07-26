@@ -9,12 +9,25 @@
         <img class="img" src="{{ project.img }}" alt="">
     </div>
     {% else %}
+    {% if project.logos %}
+    <div class="img">
+        <p>
+            {% for logo in project.logos %}
+            <i>
+                <img src="/media/{{ logo }}" alt="">
+            </i>
+            {% endfor %}
+        </p>
+    </div>
+    {% else %}
     <div class="img">
         <p><i class="bi-boxes"></i></p>
     </div>
     {% endif %}
+    {% endif %}
 
-{% if project.link %}</a>{% endif %}
+    {% if project.link %}
+</a>{% endif %}
 
 <div class="tags">
     {% for tag in project.tags %}

@@ -109,8 +109,10 @@ div.img {
   overflow: hidden;
 }
 
-div.img p {
+.project-item div.img p {
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   height: 100%;
   border: 1px solid gray;
   width: 100%;
@@ -118,11 +120,34 @@ div.img p {
   color: black;
   margin: 0;
 }
-div.img p i {
-  display: block;
+.project-item div.img p i {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 5rem;
-  margin: auto;
   color: #ccc;
+}
+.project-item div.img p i img {
+  max-width: 8rem;
+  max-height: 8rem;
+}
+
+.project-item div.img p i img {
+  transition: all 0.5s ease;
+  filter: saturate(0) opacity(0.3);
+}
+
+.project-item.active div.img p i img {
+  filter: saturate(1) opacity(1);
+}
+
+.project-item img.img {
+  transition: all 0.5s ease;
+  filter: saturate(0) opacity(1);
+}
+
+.project-item.active img.img {
+  filter: saturate(1) opacity(1);
 }
 
 div.tags {
@@ -144,4 +169,8 @@ section {
 
 section#hire {
   padding-bottom: 3rem;
+}
+
+.project-item a {
+  text-decoration: none;
 }

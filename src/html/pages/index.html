@@ -5,17 +5,23 @@
 {% set projects =
 [
 {title: "Shopify Site", client:"UStar Myanmar", link: "/projects/ustarmm/", live_text: "View Shop", live:
-"https://ustarmm.com", tags: ["Shopify"], img: "/media/ustar.png", desc: "An e-commerce store with hundreds of products and dozens of
+"https://ustarmm.com", tags: ["Shopify"], img: "/media/ustar.png", desc: "An e-commerce store with hundreds of products
+and dozens of
 categories."},
 {title: "Lucky Draw Web App", client: "Berina Myanmar", link: "/projects/berinaluckydraw", tags: ["GCP", "NodeJS"],
-img: "/media/berinaluckydraw.png", desc: "A web app for collecting entries and automatically assigning winners for a lucky draw program."},
-{title: "10 Years of Galaxy", client: "Samsung Myanmar", tags: ["GCP", "Facebook Instant Game"], img: "/media/galaxy10mm.jpg", desc: "A Facebook
+img: "/media/berinaluckydraw.png", desc: "A web app for collecting entries and automatically assigning winners for a
+lucky draw program."},
+{title: "10 Years of Galaxy", client: "Samsung Myanmar", tags: ["GCP", "Facebook Instant Game"], img:
+"/media/galaxy10mm.jpg", desc: "A Facebook
 Instant Game compatible web application to promote the launch of a range of products."},
-{title: "Airport VIP Booking System", client: "APAS Thailand", tags: ["Django", "AngularJS"], desc: "An appointment
+{title: "Airport VIP Booking System", client: "APAS Thailand", tags: ["Django", "AngularJS"], logos: ['django1.png',
+'angular.png'], desc: "An appointment
 booking system for a VIP service provider at major airports in Thailand and other SEA countries."},
-{title: "Board Game Cafe POS", client: "House Rules Cafe", tags: ["Django"], desc: "A Point-of-Sale System for a
+{title: "Board Game Cafe POS", client: "House Rules Cafe", tags: ["Django", "React"], logos: ['django1.png',
+'react.png'], desc: "A Point-of-Sale System for a
 board game cafe with membership & cash-card management, staff clock-in system, table timers, and more."},
-{title: "Other", tags: ["Joomla", "HTML", "CSS"], link:"/projects/other/", desc: "A dozen websites for clients
+{title: "Other", tags: ["Joomla", "HTML", "CSS"], link:"/projects/other/", logos: ['joomla.png', 'html.png'], desc:
+"Other websites for clients
 using CMS's including Joomla, WordPress, and Django."}
 ]
 %}
@@ -56,7 +62,7 @@ using CMS's including Joomla, WordPress, and Django."}
         <div class="row">
 
             {% for project in projects %}
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4 project-item">
                 {% include 'snippets/project.html' %}
             </div>
             {% endfor %}
@@ -70,7 +76,7 @@ using CMS's including Joomla, WordPress, and Django."}
 <section id="hire">
     <div class="container">
 
-        <h1 class="text-center">Looking to hire a <br class="d-lg-none d-inline"> full-stack developer?</h1>
+        <h1 class="text-center">Looking to hire a <br class="d-lg-none d-inline"> full stack developer?</h1>
 
         <p class="text-center" style="font-size: 1.4rem;">I am currently open to opportunities.</p>
 
@@ -142,5 +148,246 @@ using CMS's including Joomla, WordPress, and Django."}
 
     </div>
 </section>
+
+<script>
+    /**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v5.1.3): scrollspy.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+    /**
+     * ------------------------------------------------------------------------
+     * Constants
+     * ------------------------------------------------------------------------
+     */
+
+    const NAME$2 = 'scrollspy';
+    const DATA_KEY$2 = 'bs.scrollspy';
+    const EVENT_KEY$2 = `.${DATA_KEY$2}`;
+    const DATA_API_KEY$1 = '.data-api';
+    const Default$1 = {
+        offset: 10,
+        method: 'auto',
+        target: ''
+    };
+    const DefaultType$1 = {
+        offset: 'number',
+        method: 'string',
+        target: '(string|element)'
+    };
+    const EVENT_ACTIVATE = `activate${EVENT_KEY$2}`;
+    const EVENT_SCROLL = `scroll${EVENT_KEY$2}`;
+    const EVENT_LOAD_DATA_API = `load${EVENT_KEY$2}${DATA_API_KEY$1}`;
+    const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
+    const CLASS_NAME_ACTIVE$1 = 'active';
+    const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+    const SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
+    const SELECTOR_NAV_LINKS = '.nav-link';
+    const SELECTOR_NAV_ITEMS = '.nav-item';
+    const SELECTOR_LIST_ITEMS = '.list-group-item';
+    const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}, .${CLASS_NAME_DROPDOWN_ITEM}`;
+    const SELECTOR_DROPDOWN$1 = '.dropdown';
+    const SELECTOR_DROPDOWN_TOGGLE$1 = '.dropdown-toggle';
+    const METHOD_OFFSET = 'offset';
+    const METHOD_POSITION = 'position';
+    /**
+     * ------------------------------------------------------------------------
+     * Class Definition
+     * ------------------------------------------------------------------------
+     */
+    class ScrollSpy extends BaseComponent {
+        constructor(element, config) {
+            super(element);
+            this._scrollElement = this._element.tagName === 'BODY' ? window : this._element;
+            this._config = this._getConfig(config);
+            this._offsets = [];
+            this._targets = [];
+            this._activeTarget = null;
+            this._scrollHeight = 0;
+            EventHandler.on(this._scrollElement, EVENT_SCROLL, () => this._process());
+            this.refresh();
+
+            this._process();
+        } // Getters
+
+
+        static get Default() {
+            return Default$1;
+        }
+
+        static get NAME() {
+            return NAME$2;
+        } // Public
+
+
+        refresh() {
+            const autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
+            const offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
+            const offsetBase = offsetMethod === METHOD_POSITION ? this._getScrollTop() : 0;
+            this._offsets = [];
+            this._targets = [];
+            this._scrollHeight = this._getScrollHeight();
+            const targets = SelectorEngine.find(SELECTOR_LINK_ITEMS, this._config.target);
+            targets.map(element => {
+                const targetSelector = getSelectorFromElement(element);
+                const target = targetSelector ? SelectorEngine.findOne(targetSelector) : null;
+
+                if (target) {
+                    const targetBCR = target.getBoundingClientRect();
+
+                    if (targetBCR.width || targetBCR.height) {
+                        return [Manipulator[offsetMethod](target).top + offsetBase, targetSelector];
+                    }
+                }
+
+                return null;
+            }).filter(item => item).sort((a, b) => a[0] - b[0]).forEach(item => {
+                this._offsets.push(item[0]);
+
+                this._targets.push(item[1]);
+            });
+        }
+
+        dispose() {
+            EventHandler.off(this._scrollElement, EVENT_KEY$2);
+            super.dispose();
+        } // Private
+
+
+        _getConfig(config) {
+            config = {
+                ...Default$1,
+                ...Manipulator.getDataAttributes(this._element),
+                ...(typeof config === 'object' && config ? config : {})
+            };
+            config.target = getElement(config.target) || document.documentElement;
+            typeCheckConfig(NAME$2, config, DefaultType$1);
+            return config;
+        }
+
+        _getScrollTop() {
+            return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
+        }
+
+        _getScrollHeight() {
+            return this._scrollElement.scrollHeight || Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+
+        _getOffsetHeight() {
+            return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
+        }
+
+        _process() {
+            const scrollTop = this._getScrollTop() + this._config.offset;
+
+            const scrollHeight = this._getScrollHeight();
+
+            const maxScroll = this._config.offset + scrollHeight - this._getOffsetHeight();
+
+            if (this._scrollHeight !== scrollHeight) {
+                this.refresh();
+            }
+
+            if (scrollTop >= maxScroll) {
+                const target = this._targets[this._targets.length - 1];
+
+                if (this._activeTarget !== target) {
+                    this._activate(target);
+                }
+
+                return;
+            }
+
+            if (this._activeTarget && scrollTop < this._offsets[0] && this._offsets[0] > 0) {
+                this._activeTarget = null;
+
+                this._clear();
+
+                return;
+            }
+
+            for (let i = this._offsets.length; i--;) {
+                const isActiveTarget = this._activeTarget !== this._targets[i] && scrollTop >= this._offsets[i] && (typeof this._offsets[i + 1] === 'undefined' || scrollTop < this._offsets[i + 1]);
+
+                if (isActiveTarget) {
+                    this._activate(this._targets[i]);
+                }
+            }
+        }
+
+        _activate(target) {
+            this._activeTarget = target;
+
+            this._clear();
+
+            const queries = SELECTOR_LINK_ITEMS.split(',').map(selector => `${selector}[data-bs-target="${target}"],${selector}[href="${target}"]`);
+            const link = SelectorEngine.findOne(queries.join(','), this._config.target);
+            link.classList.add(CLASS_NAME_ACTIVE$1);
+
+            if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
+                SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, link.closest(SELECTOR_DROPDOWN$1)).classList.add(CLASS_NAME_ACTIVE$1);
+            } else {
+                SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP$1).forEach(listGroup => {
+                    // Set triggered links parents as active
+                    // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+                    SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
+
+                    SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
+                        SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1));
+                    });
+                });
+            }
+
+            EventHandler.trigger(this._scrollElement, EVENT_ACTIVATE, {
+                relatedTarget: target
+            });
+        }
+
+        _clear() {
+            SelectorEngine.find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classList.contains(CLASS_NAME_ACTIVE$1)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE$1));
+        } // Static
+
+
+        static jQueryInterface(config) {
+            return this.each(function () {
+                const data = ScrollSpy.getOrCreateInstance(this, config);
+
+                if (typeof config !== 'string') {
+                    return;
+                }
+
+                if (typeof data[config] === 'undefined') {
+                    throw new TypeError(`No method named "${config}"`);
+                }
+
+                data[config]();
+            });
+        }
+
+    }
+</script>
+
+<script>
+    const buffer = 30;
+    const offset = 100;
+
+    for (let ele of document.getElementsByClassName('project-item')) {
+        window.addEventListener('scroll', () => {
+            let rect = ele.getBoundingClientRect()
+
+            let win = {
+                w: window.innerWidth,
+                h: window.innerHeight
+            }
+
+            if (rect.top - offset + buffer < win.h / 2) {
+                ele.classList.add('active')
+            } else if (rect.top - offset > win.h / 2) {
+                ele.classList.remove('active')
+            }
+        })
+    }
+</script>
 
 {% endblock %}
