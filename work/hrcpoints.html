@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dark="true">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="../_app/immutable/assets/0.5a3fd6e2.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/10.93fac91c.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.4844b193.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.82d5f301.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.32ee2c21.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.2ade9c4b.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.c9b044aa.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.7f13337a.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/globals.7f7f1b26.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/iconify-icon.6d541906.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.a22800a1.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/stores.483c9918.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/2.c2ad4385.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/11.f8ec1ef2.js"><!-- HEAD_svelte-12w00gu_START --><meta name="author" content="Lian"><meta name="og:title" content="Lian's Portofolio"><meta name="og:image" content="/thissite.png"><meta name="og:description" content="Lian is a full stack web developer. This is his portofolio site."><!-- HEAD_svelte-12w00gu_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">     <main class="mx-auto max-w-5xl pt-20 svelte-1koz3vz" style=""><a href="/work" class="block border-gray-400 border-[1px] py-1 px-2 rounded-md my-2 w-fit" data-svelte-h="svelte-h6ufaq"><iconify-icon icon="ph:caret-left-light"></iconify-icon>
+        Back to Portfolio</a> <h1 data-svelte-h="svelte-1ee9lnj">Loyalty / Membership App: House Rules Club</h1> <img class="w-full" src="/_app/immutable/assets/hrcpoints.564eef63.jpg"> <h2 data-svelte-h="svelte-1vo04f4">Intro</h2> <p class="svelte-15bjprc" data-svelte-h="svelte-t5txhc">The purpose of this app is to allow customers of a board game cafe to collect and use points, credits, or other units such as a free drink or game hour.</p> <h3 data-svelte-h="svelte-1mt6x5z">Features</h3> <ul style="padding-left: 18px; list-style-type: circle;" data-svelte-h="svelte-1xg6srj"><li>Create any number of card types such as Cash, Drink, Hours, Points, etc</li> <li>Card balances must expire in a First-In-First-Out manner</li> <li>Must be convenient to auto-update the app in the future</li></ul> <h2 data-svelte-h="svelte-96pxtu">Tech Stack</h2> <p class="svelte-15bjprc" data-svelte-h="svelte-1qk4rmf">I decided to build this app as a &quot;Progressive Web Application&quot; PWA, so that we could roll out new features, fix bugs, or change the UI as needed. Another benefit of utilizing PWA technologies was that was it was cross platform. Admin users could also access the same app using a browser on a laptop or tablet, by going to a protected URL.</p> <h3 data-svelte-h="svelte-15c24mu">Framework</h3> <p class="svelte-15bjprc" data-svelte-h="svelte-ex1v0s">I decided to use Svelte for the performance, the superior developer experience, and because I wanted to try SvelteKit. I first built the UI using Svelte, and the separate API using ExpressJS, just in case SvelteKit had limitations. After some tests, it turned out to be the best backend framework for Svelte. Who knew?</p> <h4 data-svelte-h="svelte-7fm29f">Some Hiccups</h4> <p class="svelte-15bjprc" data-svelte-h="svelte-enxnjw">PWA&#39;s are not without its own problems. Firstly, on iOS, the &quot;Add to Home screen&quot; option - the way PWA&#39;s are installed - is only available on Safari, whereas Android users may use Chrome other browsers to install the app. That meant, I had to test on both iOS Safari and Android Chrome Browsers. As a web developer, this is far less than a typical web application.</p> <p class="svelte-15bjprc" data-svelte-h="svelte-15brsxu">Secondly, Svelte generates javascript that uses some modern Javascript features. That means some features were not available on older browsers that do not support the newer APIs and javascript features. I ran into this problem when I was testing the app on the cafe&#39;s POS tablet. It was an Android tablet running a very old version of Google Chrome, and there was no way to update it.</p> <p class="svelte-15bjprc" data-svelte-h="svelte-k3z6js">Another minor problem I ran into was that one customer did not have the &quot;Add to Homescreen.&quot; They ended up simply using the browser without installing.</p> <h3 data-svelte-h="svelte-3zy45k">Authentication</h3> <p class="svelte-15bjprc" data-svelte-h="svelte-iy18y">I chose Firebase Authentication for its convenience to the user. I enabled Google Sign-In only but Firebase supports email/password, facebook, github, and more.</p> <h3 data-svelte-h="svelte-x1n4id">Database</h3> <p class="svelte-15bjprc" data-svelte-h="svelte-1fvuvmk">I used Planetscale, a cloud database provider for its free tier and also because I had heard good things about it and wnated to try. There is no risk of vendor lock-in, but there are caveats. Planetscale does not support true foreign key constraints. Due to this restriction, I might migrate to a different provider in the future.</p> <h3 data-svelte-h="svelte-ec95wg">Hosting</h3> <p class="svelte-15bjprc" data-svelte-h="svelte-176uyfh">I went with Vercel for their ease of deployment when it comes to SvelteKit projects. Also, their free tier covers our use case. One downside I discovered was their slow cold-start time. If it becomes a noticable problem, I will migrate to DigitalOcean. SvelteKit has support for vercel, netlify, or plain node servers.</p></main> <footer class="text-center svelte-1koz3vz" data-svelte-h="svelte-2v4oxw">© Copyright 2023</footer> 
+			
+			<script>
+				{
+					__sveltekit_1jqx9f5 = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.4844b193.js"),
+						import("../_app/immutable/entry/app.2ade9c4b.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2, 11],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
